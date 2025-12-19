@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link href="/" className="hover:text-gray-900 transition">
           Home
         </Link>
-        <Link href="/all-products" className="hover:text-gray-900 transition">
+        <Link href="/ui/all-products" className="hover:text-gray-900 transition">
           Shop
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
@@ -33,7 +33,7 @@ const Navbar = () => {
           Contact
         </Link>
 
-        {isAdmin && <button onClick={() => router.push('/Admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>}
+        {isAdmin && <button onClick={() => router.push('/ui/admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>}
 
       </div>
 
@@ -65,7 +65,7 @@ const Navbar = () => {
       </ul>
 
       <div className="flex items-center md:hidden gap-3">
-        {isAdmin && <button onClick={() => router.push('/Admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>}
+        {isAdmin && <button onClick={() => router.push('/ui/admin')} className="text-xs border px-4 py-1.5 rounded-full">Admin Dashboard</button>}
       { 
           user 
             ? <>

@@ -19,6 +19,7 @@ import arrow_icon_white from "./arrow_icon_white.svg";
 import heart_icon from "./heart_icon.svg";
 import star_icon from "./star_icon.svg";
 import redirect_icon from "./redirect_icon.svg";
+import delete_icon from "./delete_icon.svg";
 import star_dull_icon from "./star_dull_icon.svg";
 import header_headphone_image from "./header_headphone_image.png";
 import header_playstation_image from "./header_playstation_image.png";
@@ -69,6 +70,7 @@ export const assets = {
   heart_icon,
   star_icon,
   redirect_icon,
+  delete_icon,
   star_dull_icon,
   header_headphone_image,
   header_playstation_image,

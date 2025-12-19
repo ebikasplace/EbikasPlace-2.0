@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 let cached = global.mongoose;
 
 if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null };
+    cached = global.mongoose = { conn: null, promise: null }
 }
 
 async function connectDB() {
@@ -20,6 +20,7 @@ async function connectDB() {
         cached.promise = mongoose.connect(`${process.env.MONGODB_URI}/ebikasplace`, opts).then(mongoose => {
             return mongoose;
         }) 
+        
     }
 
     cached.conn = await cached.promise;

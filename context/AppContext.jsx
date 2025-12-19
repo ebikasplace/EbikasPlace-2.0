@@ -2,7 +2,7 @@
 import { productsDummyData, userDummyData } from "@/assets/assets";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useUser } from "@clerk/nextjs";
+import { useAuth, useUser } from "@clerk/nextjs";
 import axios from "axios";
 import { set } from "mongoose";
 import toast from "react-hot-toast";
@@ -47,8 +47,8 @@ export const AppContextProvider = (props) => {
             toast.error(data.message)
         }
 
-        } catch (error) {{
-
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -125,5 +125,4 @@ export const AppContextProvider = (props) => {
             {props.children}
         </AppContext.Provider>
     )
-    }
 }

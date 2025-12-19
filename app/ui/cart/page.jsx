@@ -102,7 +102,7 @@ const Cart = () => {
               </tbody>
             </table>
           </div>
-          <button onClick={()=> router.push('/all-products')} className="group flex items-center mt-6 gap-2 text-orange-600">
+          <button onClick={()=> router.push('/ui/all-products')} className="group flex items-center mt-6 gap-2 text-orange-600">
             <Image
               className="group-hover:-translate-x-1 transition"
               src={assets.arrow_right_icon_colored}

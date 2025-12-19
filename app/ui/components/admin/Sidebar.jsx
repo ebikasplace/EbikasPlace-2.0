@@ -1,15 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
-import { assets } from '../../../../assets/assets';
+import { assets } from '@/assets/assets';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const SideBar = () => {
     const pathname = usePathname()
     const menuItems = [
-        { name: 'Add Product', path: '/admin', icon: assets.add_icon },
-        { name: 'Product List', path: '/admin/product-list', icon: assets.product_list_icon },
-        { name: 'Orders', path: '/admin/orders', icon: assets.order_icon },
+        { name: 'Add Product', path: '/ui/admin', icon: assets.add_icon },
+        { name: 'Product List', path: '/ui/admin/product-list', icon: assets.product_list_icon },
+        { name: 'Orders', path: '/ui/admin/orders', icon: assets.order_icon },
     ];
 
     return (

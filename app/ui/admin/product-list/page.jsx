@@ -58,14 +58,24 @@ const ProductList = () => {
                   <td className="px-4 py-3 max-sm:hidden">{product.category}</td>
                   <td className="px-4 py-3">${product.offerPrice}</td>
                   <td className="px-4 py-3 max-sm:hidden">
-                    <button onClick={() => router.push(`/product/${product._id}`)} className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md">
-                      <span className="hidden md:block">Visit</span>
-                      <Image
-                        className="h-3.5"
-                        src={assets.redirect_icon}
-                        alt="redirect_icon"
-                      />
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => router.push(`/ui/product/${product._id}`)} className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-orange-600 text-white rounded-md">
+                        <span className="hidden md:block">Visit</span>
+                        <Image
+                          className="h-3.5"
+                          src={assets.redirect_icon}
+                          alt="redirect_icon"
+                        />
+                      </button>
+                      <button onClick={() => router.push(`/ui/product/${product._id}`)} className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-red-600 text-white rounded-md">
+                        <span className="hidden md:block">Delete</span>
+                        <Image
+                          className="h-3.5"
+                          src={assets.delete_icon}
+                          alt="delete_icon"
+                        />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
