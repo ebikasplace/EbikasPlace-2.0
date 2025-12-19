@@ -14,10 +14,11 @@ const eslintConfig = [
   {
     rules: {
       "react/display-name": "off",
+      "@next/next/no-html-link-for-pages": "off",
     },
   },
   {
-    ignores: ["node_modules/**", ".next/**", "out/**", "build/**"],
+    ignores: ["node_modules/", ".next/", "out/", "build/", ".vercel/"],
   },
 ];
 
