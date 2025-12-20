@@ -20,25 +20,38 @@ export const AppContextProvider = (props) => {
     const currency = process.env.NEXT_PUBLIC_CURRENCY
     const router = useRouter()
 
-    const {user} = useUser()
-    const {getToken} = useUser()
+    const { user } = useUser()
+    const { getToken } = useAuth()
     const [products, setProducts] = useState([])
     const [userData, setUserData] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
     const [cartItems, setCartItems] = useState({})
 
     const fetchProductData = async () => {
-        setProducts(productsDummyData)
+        try{
+
+            const { data } = await axios.get('/api/product/list')
+
+            if (data.success){
+                setProducts(data.products)
+            } else{
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
     }
 
     const fetchUserData = async () => {
         try {
+            
             if (user.publicMetadata.role === 'admin') {
             setIsAdmin(true)
         }
 
         const token = await getToken()
-        const {data} = await axios.get('/api/user/data', {headers: {Authorization: `Bearer ${token}`}})
+        const {data} = await axios.get('/api/user/data', {headers: {Authorization: `Bearer ${token}`} })
 
         if (data.success){
             setUserData(data.user)
@@ -48,7 +61,7 @@ export const AppContextProvider = (props) => {
         }
 
         } catch (error) {
-            console.log(error)
+            toast.error(error.message)
         }
     }
 
@@ -62,6 +75,15 @@ export const AppContextProvider = (props) => {
             cartData[itemId] = 1;
         }
         setCartItems(cartData);
+        if (user){
+            try{
+                const token = await getToken()
+                await axios.post('/api/cart/update', {cartData}, {headers:{Authorization: `bearer ${token}`}})
+                toast.success("Item added to cart")
+            } catch (error){
+                toast.error(error.message)
+            }
+        }
 
     }
 
@@ -75,6 +97,15 @@ export const AppContextProvider = (props) => {
         }
         setCartItems(cartData)
 
+        if (user){
+            try{
+                const token = await getToken()
+                await axios.post('/api/cart/update', {cartData}, {headers:{Authorization: `bearer ${token}`}})
+                toast.success("Cart Updated")
+            } catch (error){
+                toast.error(error.message)
+            }
+        }
     }
 
     const getCartCount = () => {
@@ -91,7 +122,7 @@ export const AppContextProvider = (props) => {
         let totalAmount = 0;
         for (const items in cartItems) {
             let itemInfo = products.find((product) => product._id === items);
-            if (cartItems[items] > 0) {
+            if (cartItems[items] > 0 && itemInfo) {
                 totalAmount += itemInfo.offerPrice * cartItems[items];
             }
         }

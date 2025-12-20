@@ -4,13 +4,19 @@ import Navbar from "@/app/ui/components/Navbar";
 import Footer from "@/app/ui/components/Footer";
 import Image from "next/image";
 import { useState } from "react";
+import { useAppContext } from "@/context/AppContext";
+import toast from "react-hot-toast";
+import axios from "axios";
+import React from "react";
 
 const AddAddress = () => {
+
+    const { getToken, router } = useAppContext()
 
     const [address, setAddress] = useState({
         fullName: '',
         phoneNumber: '',
-        pincode: '',
+        zipCode: '',
         area: '',
         city: '',
         state: '',
@@ -18,6 +24,21 @@ const AddAddress = () => {
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
+        try {
+
+            const token = await getToken()
+
+            const { data } = await axios.post('/api/user/add-address', address, { headers: { Authorization: `Bearer ${token}` } })
+
+            if (data.success) {
+                toast.success(data.message)
+                router.push('/ui/cart')
+            } else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
 
     }
 
@@ -47,9 +68,9 @@ const AddAddress = () => {
                         <input
                             className="px-2 py-2.5 focus:border-orange-500 transition border border-gray-500/30 rounded outline-none w-full text-gray-500"
                             type="text"
-                            placeholder="Pin code"
-                            onChange={(e) => setAddress({ ...address, pincode: e.target.value })}
-                            value={address.pincode}
+                            placeholder="Zip code"
+                            onChange={(e) => setAddress({ ...address, zipCode: e.target.value })}
+                            value={address.zipCode}
                         />
                         <textarea
                             className="px-2 py-2.5 focus:border-orange-500 transition border border-gray-500/30 rounded outline-none w-full text-gray-500 resize-none"
