@@ -53,9 +53,9 @@ const Product = () => {
                                 <Image
                                     src={image}
                                     alt="alt"
-                                    className="w-full h-auto object-cover mix-blend-multiply"
+                                    className="w-full aspect-square object-cover mix-blend-multiply"
                                     width={1280}
-                                    height={720}
+                                    height={2000}
                                 />
                             </div>
 
@@ -64,7 +64,7 @@ const Product = () => {
                 </div>
 
                 <div className="flex flex-col">
-                    <h1 className="text-3xl font-medium text-gray-800/90 mb-4">
+                    <h1 className="text-3xl font-medium text-gray-50/90 mb-4">
                         {productData.name}
                     </h1>
                     <div className="flex items-center gap-2">
@@ -81,12 +81,12 @@ const Product = () => {
                         </div>
                         <p>(4.5)</p>
                     </div>
-                    <p className="text-gray-600 mt-3">
+                    <p className="text-gray-300 mt-3">
                         {productData.description}
                     </p>
                     <p className="text-3xl font-medium mt-6">
                         ₵{productData.offerPrice}
-                        <span className="text-base font-normal text-gray-800/60 line-through ml-2">
+                        <span className="text-base font-normal text-gray-500 line-through ml-2">
                             ₵{productData.price}
                         </span>
                     </p>
@@ -95,16 +95,16 @@ const Product = () => {
                         <table className="table-auto border-collapse w-full max-w-72">
                             <tbody>
                                 <tr>
-                                    <td className="text-gray-600 font-medium">Brand</td>
-                                    <td className="text-gray-800/50 ">Generic</td>
+                                    <td className="text-gray-300 font-medium">Brand</td>
+                                    <td className="text-gray-300/50 ">Generic</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-gray-600 font-medium">Color</td>
-                                    <td className="text-gray-800/50 ">Multi</td>
+                                    <td className="text-gray-300 font-medium">Color</td>
+                                    <td className="text-gray-300/50 ">Multi</td>
                                 </tr>
                                 <tr>
-                                    <td className="text-gray-600 font-medium">Category</td>
-                                    <td className="text-gray-800/50">
+                                    <td className="text-gray-300 font-medium">Category</td>
+                                    <td className="text-gray-300/50">
                                         {productData.category}
                                     </td>
                                 </tr>

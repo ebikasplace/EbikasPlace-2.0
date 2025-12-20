@@ -46,18 +46,19 @@ const HeaderSlider = () => {
   };
 
   return (
-    <div className="overflow-hidden relative w-full">
-      <div
-        className="flex transition-transform duration-700 ease-in-out"
-        style={{
-          transform: `translateX(-${currentSlide * 100}%)`,
-        }}
-      >
-        {sliderData.map((slide, index) => (
-          <div
-            key={slide.id}
-            className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#E6E9F2] py-8 md:px-14 px-5 mt-6 rounded-xl min-w-full"
-          >
+    <div className="relative w-full">
+      <div className="overflow-hidden glow-border rounded-xl">
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{
+            transform: `translateX(-${currentSlide * 100}%)`,
+          }}
+        >
+          {sliderData.map((slide, index) => (
+            <div
+              key={slide.id}
+              className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#B0B9D4] py-8 md:px-14 px-5 min-w-full"
+            >
             <div className="md:pl-8 mt-10 md:mt-0">
               <p className="md:text-base text-orange-600 pb-1">{slide.offer}</p>
               <h1 className="max-w-lg md:text-[40px] md:leading-[48px] text-2xl font-semibold">
@@ -82,6 +83,7 @@ const HeaderSlider = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
 
       <div className="flex items-center justify-center gap-2 mt-8">

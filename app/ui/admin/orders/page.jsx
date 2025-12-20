@@ -5,22 +5,42 @@ import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/app/ui/components/admin/Footer";
 import Loading from "@/app/ui/components/Loading";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const Orders = () => {
 
-    const { currency } = useAppContext();
+    const { currency, getToken, user } = useAppContext();
 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const fetchAdminOrders = async () => {
-        setOrders(orderDummyData);
-        setLoading(false);
+        try{
+
+            const token = await getToken();
+
+            const { data } = await axios.get('/api/order/admin-orders',{headers: {Authorization: `Bearer ${token}`}});
+
+            if(data.success){
+                setOrders(data.orders.reverse());
+                setLoading(false);
+            } else{
+                toast.error(data.message);
+            }
+            
+        } catch (error){
+            toast.error(error.message);
+        }
+        
     }
 
     useEffect(() => {
-        fetchAdminOrders();
-    }, []);
+        if(user && user.publicMetadata.role === 'admin'){
+            fetchAdminOrders();
+        }
+
+    }, [user]);
 
     return (
         <div className="flex-1 h-screen overflow-scroll flex flex-col justify-between text-sm">
@@ -37,7 +57,7 @@ const Orders = () => {
                                 />
                                 <p className="flex flex-col gap-3">
                                     <span className="font-medium">
-                                        {order.items.map((item) => item.product.name + ` x ${item.quantity}`).join(", ")}
+                                        {order.items.map((item) => (item.product ? item.product.name + ` x ${item.quantity}` : 'Product Unavailable')).join(", ")}
                                     </span>
                                     <span>Items : {order.items.length}</span>
                                 </p>

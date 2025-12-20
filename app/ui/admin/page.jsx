@@ -94,7 +94,7 @@ const AddProduct = () => {
             id="product-name"
             type="text"
             placeholder="Type here"
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 text-gray-600"
             onChange={(e) => setName(e.target.value)}
             value={name}
             required
@@ -110,7 +110,7 @@ const AddProduct = () => {
           <textarea
             id="product-description"
             rows={4}
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 resize-none"
+            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 resize-none text-gray-600"
             placeholder="Type here"
             onChange={(e) => setDescription(e.target.value)}
             value={description}
@@ -124,7 +124,7 @@ const AddProduct = () => {
             </label>
             <select
               id="category"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 text-gray-600"
               onChange={(e) => setCategory(e.target.value)}
               defaultValue={category}
             >
@@ -135,6 +135,9 @@ const AddProduct = () => {
               <option value="Laptop">Laptop</option>
               <option value="Camera">Camera</option>
               <option value="Accessories">Accessories</option>
+              <option value="Game">Game</option>
+              <option value="Pc">Pc</option>
+              <option value="Console">Console</option>
             </select>
           </div>
           <div className="flex flex-col gap-1 w-32">
@@ -145,7 +148,7 @@ const AddProduct = () => {
               id="product-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 text-gray-600"
               onChange={(e) => setPrice(e.target.value)}
               value={price}
               required
@@ -159,7 +162,7 @@ const AddProduct = () => {
               id="offer-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 text-gray-600"
               onChange={(e) => setOfferPrice(e.target.value)}
               value={offerPrice}
               required

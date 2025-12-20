@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import search_icon from "./search_icon.svg";
 import user_icon from "./user_icon.svg";
 import cart_icon from "./cart_icon.svg";
@@ -20,6 +20,7 @@ import heart_icon from "./heart_icon.svg";
 import star_icon from "./star_icon.svg";
 import redirect_icon from "./redirect_icon.svg";
 import delete_icon from "./delete_icon.svg";
+import pencil_icon from "./pencil_icon.svg";
 import star_dull_icon from "./star_dull_icon.svg";
 import header_headphone_image from "./header_headphone_image.png";
 import header_playstation_image from "./header_playstation_image.png";
@@ -71,6 +72,7 @@ export const assets = {
   star_icon,
   redirect_icon,
   delete_icon,
+  pencil_icon,
   star_dull_icon,
   header_headphone_image,
   header_playstation_image,
@@ -280,7 +282,7 @@ export const productsDummyData = [
 
 export const userDummyData = {
   "_id": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-  "name": "GreatStack",
+  "name": "Ebikas Place",
   "email": "admin@example.com",
   "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18ycnlnUnFiUDBYT2dEZ2h1ZmRXcGlpdWV5OXoiLCJyaWQiOiJ1c2VyXzJzWkZIUzFVSUl5c0p5RFZ6Q3BRaFVoVElodyJ9",
   "cartItems": {
@@ -320,7 +322,7 @@ export const orderDummyData = [
     "address": {
       "_id": "67a1e4233f34a77b6dde9055",
       "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-      "fullName": "GreatStack",
+      "fullName": "Ebikas Place",
       "phoneNumber": "0123456789",
       "pincode": 654321,
       "area": "Main Road , 123 Street, G Block",
@@ -359,7 +361,7 @@ export const orderDummyData = [
     "address": {
       "_id": "67a1e4233f34a77b6dde9055",
       "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-      "fullName": "GreatStack",
+      "fullName": "Ebikas Place",
       "phoneNumber": "0123456789",
       "pincode": 654321,
       "area": "Main Road , 123 Street, G Block",
@@ -401,7 +403,7 @@ export const orderDummyData = [
     "address": {
       "_id": "67a1e4233f34a77b6dde9055",
       "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-      "fullName": "GreatStack",
+      "fullName": "Ebikas Place",
       "phoneNumber": "0123456789",
       "pincode": 654321,
       "area": "Main Road , 123 Street, G Block",
@@ -419,7 +421,7 @@ export const addressDummyData = [
   {
     "_id": "67a1e4233f34a77b6dde9055",
     "userId": "user_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-    "fullName": "GreatStack",
+    "fullName": "Ebikas Place",
     "phoneNumber": "0123456789",
     "pincode": 654321,
     "area": "Main Road , 123 Street, G Block",

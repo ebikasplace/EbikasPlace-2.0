@@ -15,7 +15,22 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${outfit.className} antialiased text-gray-700`} >
+        <body className={`${outfit.className} antialiased text-gray-700 relative`}>
+          {/* Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="fixed top-0 left-0 w-full h-full object-cover -z-50"
+          >
+            <source src="/videos/background.mp4" type="video/mp4" />
+          </video>
+
+          {/* Dark Overlay for Better Text Readability */}
+          <div className="fixed top-0 left-0 w-full h-full bg-black/40 -z-40" />
+
           <Toaster />
           <AppContextProvider>
             {children}

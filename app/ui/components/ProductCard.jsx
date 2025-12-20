@@ -10,13 +10,13 @@ const ProductCard = ({ product }) => {
     return (
         <div
             onClick={() => { router.push('/ui/product/' + product._id); scrollTo(0, 0) }}
-            className="flex flex-col items-start gap-0.5 max-w-[200px] w-full cursor-pointer"
+            className="flex flex-col items-start gap-0.5 max-w-[200px] w-full cursor-pointer product-card"
         >
-            <div className="cursor-pointer group relative bg-gray-500/10 rounded-lg w-full h-52 flex items-center justify-center">
+            <div className="cursor-pointer group relative glow-border-hover rounded-xl w-full h-64 flex items-center justify-center transition-transform duration-300 hover:scale-110 overflow-hidden">
                 <Image
                     src={product.image[0]}
                     alt={product.name}
-                    className="group-hover:scale-105 transition object-cover w-4/5 h-4/5 md:w-full md:h-full"
+                    className="group-hover:scale-105 transition object-cover w-full h-full"
                     width={800}
                     height={800}
                 />
